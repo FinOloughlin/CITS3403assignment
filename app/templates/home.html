@@ -2,19 +2,18 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="/static/home.css">
-        <script src="/static/home.js"></script>
+        <link rel="stylesheet" href="../static/home.css">
+        <script src="../static/home.js"></script>
     </head>
 
     <body>
-        <div class="container">
-            <h1 id="header">Welcome to our Website!</h1>
-            <div id="sign up">
-                <h6>Sign Up:</h6>
-                <button class=" btn btn-primary" onclick="location.href='{{ url_for('signup') }}'">Sign Up</button>
+        <div class="header">
+            <div class="welcome-message">Welcome to Funland</div>
+            <div class="button-container">
+              <button class=" btn btn-primary" onclick="location.href='{{ url_for('login') }}'">login</button>
+              <button class=" btn btn-primary" onclick="location.href='{{ url_for('register') }}'">register</button>
             </div>
         </div>
-
     </body>
 
 </html>
