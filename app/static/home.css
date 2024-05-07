@@ -24,3 +24,13 @@
 .button-container button {
     margin-left: 10px;
 }
+
+.nav-link {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    opacity: 1;
+}
