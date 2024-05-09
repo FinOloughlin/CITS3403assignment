@@ -34,3 +34,13 @@
     cursor: pointer;
     opacity: 1;
 }
+
+.navbar {
+    padding: 20px;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
