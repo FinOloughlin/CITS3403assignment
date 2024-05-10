@@ -11,6 +11,7 @@
 }
 
 .navbar {
+    height: 10vh;
     padding: 20px;
 }
 
@@ -20,12 +21,25 @@
     transform: translateX(-50%);
 }
 
+
+
 /* Flipcard Styling */
 .flip-card {
     background-color: transparent;
-    width: 400px;
-    height: 700px;
+    width: 28%;
+    height: 60%;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    display: inline-block
+  }
+
+  /* Font styling */
+  .flip-card-text {
+    padding-top: 10px;
+    font-size: 5.5vh;
+  }
+
+  #p {
+    font-size: 3vh;
   }
   
   /* This container is needed to position the front and back side */
