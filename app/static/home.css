@@ -29,7 +29,8 @@
     width: 28%;
     height: 60%;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    display: inline-block
+    display: inline-block;
+    border-radius: 10px;
   }
 
   /* Font styling */
@@ -64,6 +65,7 @@
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
+    border-radius: 15px;
   }
 
   .flip-card-back {
@@ -72,6 +74,7 @@
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
+    border-radius: 15px;
   }
   
   /* Style the front side (fallback if image is missing) */
