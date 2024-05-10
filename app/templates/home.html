@@ -10,19 +10,58 @@
     </head>
 
     <body>
+      <!--Navbar Implementations-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand mx-auto" href="#">Mad Libs</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" onclick="window.location.href='{{ url_for('Signup') }}'">
-                  <a class="nav-link">Login/Register<span class="sr-only">(current)</span></a>
-                </li>
-              </ul>
+          <a class="navbar-brand mx-auto" href="#">Mad Libs</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active" onclick="window.location.href='{{ url_for('Signup') }}'">
+                <a class="nav-link">Login/Register<span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!--Centre card-->
+        <div class="flip-card" id="centreCard">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h1>Create a MadLib</h1>
             </div>
-          </nav>
+            <div class="flip-card-back">
+              <h1>How to Create</h1>
+              <p>Write words</p>
+              <p>Leave a blank</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" id="leftCard">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h1>Find a MadLib</h1>
+            </div>
+            <div class="flip-card-back">
+              <h1>How to add</h1>
+              <p>Fill in the blank</p>
+              <p>Match the description</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" id="rightCard">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h1>Rules</h1>
+            </div>
+            <div class="flip-card-back">
+              <h1>Rules</h1>
+              <p>Be nice</p>
+              <p>Be creative</p>
+            </div>
+          </div>
+        </div>
     </body>
 </html>
