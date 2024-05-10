@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, flash
 from app import flaskApp, db
 from app.models import *
 
@@ -11,9 +11,18 @@ def home():
 def Signup():
     return render_template('signUp.html')
 
-@flaskApp.route("/submit", methods=['post'])
+@flaskApp.route("/submit", methods=['POST'])
 def Submit():
-    print(request.method)
-    print(request.form)
-    print("submitted")
-    return redirect(location=url_for("home"))
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User(email=email, password=password)
+        db.session.add(user)
+        db.session.commit()
+
+        print(User.query.all())
+        print("User registered:", email)
+        flash("User registered successfully", "success")
+
+        return redirect(location=url_for("home"))
