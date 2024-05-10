@@ -1,31 +1,42 @@
 .header {
-    padding-top: 60px;
+    font-size: 6vh;
+    padding-top: 30px;
     text-align: center;
 }
 
 .container {
     position:fixed;
-    top: 20%;
-    left: 30%;
+    width: 60vw;
+    height: 50vh;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 600px;
-    width: 100%;
     border: 1px solid;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-left:30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
+    border-radius: 10px;
+    padding: 2vh 5vw;
+}
+
+@media (max-width: 912px) or (max-height: 600px) {
+    .container {
+        border: none;
+    }
+    .form-group {
+        margin-top: 1vh;
+    }
 }
 
 .form-control {
-    margin-bottom: 30px;
+    margin-bottom: 1vh;
+    
+}
+
+.form-group {
+    width: 30vw;
+    margin-top: 4vh;
 }
 
 .btn-primary {
-    width: auto;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-right: 8px;
-    padding-left: 8px;
+    padding: 1vh 2vw;
     border-radius: 5px;
 }
