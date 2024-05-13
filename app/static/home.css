@@ -76,6 +76,9 @@
     backface-visibility: hidden;
     border-radius: 15px;
   }
+  .flip-card-back:hover {
+    cursor: pointer;
+  }
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
