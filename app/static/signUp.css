@@ -1,41 +1,47 @@
 .header {
-    font-size: 6vh;
-    padding-top: 30px;
+    font-size: 4vh;
+    padding-top: 0px;
     text-align: center;
+    margin-bottom: 5vh;
 }
 
 .container {
-    position:fixed;
+    position: fixed;
     width: 60vw;
     height: 50vh;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 600px;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 10px;
     padding: 2vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
 }
 
 @media (max-width: 912px) or (max-height: 600px) {
     .container {
-        border: none;
+        border: black;
     }
     .form-group {
-        margin-top: 1vh;
+        margin-top: 0vh;
     }
 }
 
 .form-control {
-    margin-bottom: 1vh;
+    margin-bottom: 0vh;
 }
 
 .form-group {
     width: 30vw;
-    margin-top: 4vh;
+    margin-bottom: 1vh;
 }
 
 .btn-primary {
+    margin-top: 2vh;
     padding: 1vh 2vw;
     border-radius: 5px;
 }
