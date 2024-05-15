@@ -18,9 +18,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+              {% if session.get('user_email') %}
               <li class="nav-item active">
-                <a class="nav-link" href="signUp.html">Login/Register<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout<span class="sr-only">(current)</span></a>
               </li>
+              <li class="nav-item">
+                <span class="navbar-text">{{ session.get('user_email') }}</span>
+              </li>
+              {% else %}
+              <li class="nav-item active" onclick="window.location.href='{{ url_for('Signup') }}'">
+                <a class="nav-link">Login/Register<span class="sr-only">(current)</span></a>
+              </li>
+              {% endif %}
             </ul>
           </div>
         </nav>
@@ -30,10 +39,17 @@
             <div class="flip-card-front">
               <h1 class ="flip-card-text">Create a MadLib</h1>
             </div>
+            {% if session.get('user_email') %}
             <div class="flip-card-back" onclick="window.location.href='{{ url_for('create') }}'">
               <h1 class ="flip-card-text">How to Create</h1>
               <p class ="flip-card-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
             </div>
+            {% else %}
+            <div class="flip-card-back" onclick="myAlert()">
+              <h1 class ="flip-card-text">How to Create</h1>
+              <p class ="flip-card-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -42,10 +58,17 @@
             <div class="flip-card-front">
               <h1 class ="flip-card-text">Find a MadLib</h1>
             </div>
+            {% if session.get('user_email') %}
             <div class="flip-card-back">
               <h1 class ="flip-card-text">How to add</h1>
               <p class ="flip-card-text" id="p">Fill in the blank <br> Match the description</p>
             </div>
+            {% else %}
+            <div class="flip-card-back" onclick="myAlert()">
+              <h1 class ="flip-card-text">How to add</h1>
+              <p class ="flip-card-text" id="p">Fill in the blank <br> Match the description</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -54,10 +77,17 @@
             <div class="flip-card-front">
               <h1 class ="flip-card-text">Rules</h1>
             </div>
+            {% if session.get('user_email') %}
             <div class="flip-card-back">
               <h1 class ="flip-card-text">Rules</h1>
               <p class ="flip-card-text" id="p">Be nice <br> Be creative</p>
             </div>
+            {% else %}
+            <div class="flip-card-back" onclick="myAlert()">
+              <h1 class ="flip-card-text">Rules</h1>
+              <p class ="flip-card-text" id="p">Be nice <br> Be creative</p>
+            </div>
+            {% endif %}
           </div>
         </div>
     </body>
