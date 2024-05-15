@@ -1,8 +1,8 @@
 pull the files to your computer. Open terminal and navigate to the directory that the project is in. 
 
 in terminal type:
-> python3 venv -m tmp-env
-> source tmp-env/bin/activate
+ python3 venv -m tmp-env
+ source tmp-env/bin/activate
 
  -- this will open the temp environment which just allows you to use packages that wont conflict with anything else on your computer --
 
