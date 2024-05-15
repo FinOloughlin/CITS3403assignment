@@ -33,26 +33,36 @@
             </ul>
           </div>
         </nav>
-        <!--Centre card-->
-        <div class="flip-card" id="centreCard">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h1 class ="flip-card-text">Create a MadLib</h1>
-            </div>
-            {% if session.get('user_email') %}
-            <div class="flip-card-back" onclick="window.location.href='{{ url_for('create') }}'">
-              <h1 class ="flip-card-text">How to Create</h1>
-              <p class ="flip-card-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
-            </div>
-            {% else %}
-            <div class="flip-card-back" onclick="myAlert()">
-              <h1 class ="flip-card-text">How to Create</h1>
-              <p class ="flip-card-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
-            </div>
-            {% endif %}
-          </div>
-        </div>
 
+
+        <div class="container">
+          <div class="info-block">
+            <h1>What's a MadLib?</h1>
+            <p>Do you love finishing other people's... sentences? <br> 
+              MadLibs is a word game where you fill in the blanks without knowing the context. <br> 
+              Whether you want to create your own, fill in existing sentences or just check out funny stories, MadLibs has something for everyone! <br> 
+              Look below to find out more!
+              </p>
+
+          <!--Centre card-->
+          <div class="flip-card" id="centreCard">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h1 class ="flip-card-front-text">Create</h1>
+              </div>
+              {% if session.get('user_email') %}
+              <div class="flip-card-back" onclick="window.location.href='{{ url_for('create') }}'">
+                <h1 class="flip-card-back-text">Create</h1>
+                <p class ="flip-card-back-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
+              </div>
+              {% else %}
+              <div class="flip-card-back" onclick="myAlert()">
+                <h1 class ="flip-card-text">How to Create</h1>
+                <p class ="flip-card-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
+              </div>
+              {% endif %}
+            </div>
+          
         <div class="flip-card" id="leftCard">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -69,14 +79,31 @@
               <p class ="flip-card-text" id="p">Fill in the blank <br> Match the description</p>
             </div>
             {% endif %}
-          </div>
-        </div>
+           </div>
 
-        <div class="flip-card" id="rightCard">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h1 class ="flip-card-text">Rules</h1>
+          <div class="flip-card" id="leftCard">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h1 class ="flip-card-front-text">Play</h1>
+              </div>
+              {% if session.get('user_email') %}
+              <div class="flip-card-back">
+                <h1 class ="flip-card-back-text">How to add</h1>
+                <p class ="flip-card-back-text" id="p">Fill in the blank <br> Match the description</p>
+              </div>
+              {% else %}
+              <div class="flip-card-back" onclick="myAlert()">
+                <h1 class ="flip-card-back-text">How to add</h1>
+                <p class ="flip-card-back-text" id="p">Fill in the blank <br> Match the description</p>
             </div>
+              {% endif %}
+          </div>
+
+          <div class="flip-card" id="rightCard">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h1 class ="flip-card-front-text">Rules</h1>
+              </div>
             {% if session.get('user_email') %}
             <div class="flip-card-back">
               <h1 class ="flip-card-text">Rules</h1>
