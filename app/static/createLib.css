@@ -3,5 +3,39 @@
     width: 60%;
     margin: 0 auto;
     border-radius: 10px;
+    border-width: 3px;
+
 }
+
+
+.form-group {
+    padding-top: 17vh;
+    position: relative;
+}
+
+.submit-button{
+    position: absolute;
+    top: calc(100% + 30px);
+    width: 120px;
+    height: 50px;
+    font-size: 22px;
+    border-radius: 10px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50px;
+}
+
+.header {
+    text-align: center;
+}
+
+
+
+
+
 
