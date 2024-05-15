@@ -1,6 +1,6 @@
 
 body {
-    background-color: rgb(27, 184, 190);
+    background-color: white;
 }
 
 /* Navbar styling */
@@ -32,9 +32,14 @@ body {
 
 /*Information block styling*/
 .info-block {
-    background-color: white;
+    background-color: rgb(27, 184, 190);;
     width: 100vw;
     height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Flipcard Styling */
@@ -106,13 +111,13 @@ body {
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #bbb;
-    color: black;
+    background-color: rgb(51, 58, 64);
+    color: white;
   }
   
   /* Style the back side */
   .flip-card-back {
-    background-color: dodgerblue;
+    background-color: rgb(51, 58, 64);
     color: white;
     transform: rotateY(180deg);
   }
