@@ -1,0 +1,22 @@
+<!-- templates/questions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Page</title>
+</head>
+<body>
+    <h1>Questions</h1>
+    {% for question in questions %}
+    <div>
+        <p>{{ loop.index }}. {{ question.content }}</p>
+        <form action="/submit_answer/{{ question.id }}" method="post">
+            <label for="answer{{ question.id }}">Your answer:</label>
+            <input type="text" id="answer{{ question.id }}" name="answer" placeholder="Type your answer here" required>
+            <button type="submit">Submit Answer</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
