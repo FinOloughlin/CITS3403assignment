@@ -16,6 +16,10 @@ def Signup():
 def create():
     return render_template('createLib.html')
 
+@flaskApp.route("/play")
+def play():
+    return render_template('play.html')
+
 @flaskApp.route("/register", methods=['POST']) 
 def Register():
     if request.method == 'POST':
