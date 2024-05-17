@@ -71,7 +71,7 @@
                 <h1 class ="flip-card-front-text">Play</h1>
               </div>
               {% if session.get('user_email') %}
-              <div class="flip-card-back">
+              <div class="flip-card-back" div class="flip-card-back" onclick="window.location.href='{{ url_for('play') }}'">
                 <h1 class ="flip-card-back-text">How to add</h1>
                 <p class ="flip-card-back-text" id="p">Fill in the blank <br> Match the description</p>
               </div>
