@@ -1,15 +1,17 @@
 .fixed-size {
     resize: none;
     width: 60%;
+    min-height: 60vh;
     margin: 0 auto;
     border-radius: 10px;
     border-width: 3px;
+    border-color: black;
 
 }
 
 
 .form-group {
-    padding-top: 17vh;
+    padding-top: 12vh;
     position: relative;
 }
 
@@ -27,15 +29,10 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 50px;
+    top: 6vh;
+    color: white;
 }
 
 .header {
     text-align: center;
 }
-
-
-
-
-
-
