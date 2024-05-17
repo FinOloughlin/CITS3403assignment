@@ -16,3 +16,5 @@ if you then run in terminal:
 
 it will provide you an address that you can copy into your browser and you can use the website with proper functionality
  
+initialize madlib.db in terminal:
+> python init_db.py
