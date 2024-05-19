@@ -1,5 +1,5 @@
 from random import randint
-from flask import render_template, redirect, url_for, request, flash, session, get_flashed_messages
+from flask import jsonify, render_template, redirect, url_for, request, flash, session, get_flashed_messages
 from app import flaskApp, db
 from app.models import User, Madlib, Placeholder
 import re
@@ -34,7 +34,8 @@ def play():
     placeholders = [placeholder.value for placeholder in madlib.placeholders]
     placeholder_count = len(madlib.placeholders)
 
-    return render_template('play.html', madlib=madlib,placeholders=placeholders, placeholder_count=placeholder_count)
+    return render_template('play.html', madlib=madlib,madlib_id=random_id,placeholders=placeholders, placeholder_count=placeholder_count)
+
 
 @flaskApp.route("/register", methods=['POST']) 
 def Register():
