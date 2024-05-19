@@ -1,3 +1,4 @@
+from random import randint
 from flask import render_template, redirect, url_for, request, flash, session, get_flashed_messages
 from app import flaskApp, db
 from app.models import User, Madlib, Placeholder
@@ -18,7 +19,17 @@ def create():
 
 @flaskApp.route("/play")
 def play():
-    return render_template('play.html')
+    madlib_count = Madlib.query.count()
+    if madlib_count == 0:
+        return "No Madlibs available"
+
+    random_id = randint(1, madlib_count)
+    madlib = Madlib.query.get(random_id)
+
+    placeholders = [placeholder.value for placeholder in madlib.placeholders]
+    placeholder_count = len(madlib.placeholders)
+
+    return render_template('play.html', madlib=madlib,placeholders=placeholders, placeholder_count=placeholder_count)
 
 @flaskApp.route("/register", methods=['POST']) 
 def Register():
