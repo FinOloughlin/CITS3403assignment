@@ -15,10 +15,15 @@ def Signup():
 
 @flaskApp.route("/create")
 def create():
+    if not session.get('user_email'):
+        return redirect(url_for('home'))
     return render_template('createLib.html')
 
 @flaskApp.route("/play")
 def play():
+    if not session.get('user_email'):
+        return redirect(url_for('home'))
+    
     madlib_count = Madlib.query.count()
     if madlib_count == 0:
         return "No Madlibs available"
@@ -42,11 +47,10 @@ def Register():
         if user: # User exists, check password
             if user.password == password:
                 session['user_email'] = user.email
-                flash("Logged in successfully", "success")
                 print("logged in:", email)
                 return redirect(location=url_for("home"))
             else: #password does not match
-                flash("Invalid password for existing email address", "warning")
+                flash("Invalid password for existing email address", "register")
                 return redirect(location=url_for("Signup"))
             
         else: # User does not exist, create a new user
@@ -57,14 +61,12 @@ def Register():
 
             print(User.query.all())
             print("User registered:", email)
-            flash("User registered successfully", "success")
 
         return redirect(location=url_for("home"))
 
 @flaskApp.route('/logout')
 def logout():
     session.pop('user_email', None)
-    flash('Logged out successfully', 'success')
     return redirect(url_for('home'))
     
 def get_next_id(): # to provide unique incrementing ids to the madlibs
@@ -95,6 +97,5 @@ def Submit():
         db.session.commit()
 
         print(Madlib.query.order_by(Madlib.id.desc()).first())
-        flash("Submitted madlib successfully", "success")
 
         return redirect(location=url_for("home"))
