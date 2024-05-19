@@ -20,13 +20,13 @@
             <ul class="navbar-nav mr-auto">
               {% if session.get('user_email') %}
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('logout') }}">Logout<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('main.logout') }}">Logout<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <span class="navbar-text">{{ session.get('user_email') }}</span>
               </li>
               {% else %}
-              <li class="nav-item active" onclick="window.location.href='{{ url_for('Signup') }}'">
+              <li class="nav-item active" onclick="window.location.href='{{ url_for('main.Signup') }}'">
                 <a class="nav-link">Login/Register<span class="sr-only">(current)</span></a>
               </li>
               {% endif %}
@@ -52,7 +52,7 @@
                 <h1 class ="flip-card-front-text">Create</h1>
               </div>
               {% if session.get('user_email') %}
-              <div class="flip-card-back" onclick="window.location.href='{{ url_for('create') }}'">
+              <div class="flip-card-back" onclick="window.location.href='{{ url_for('main.create') }}'">
                 <h1 class ="flip-card-back-text">How to Create</h1>
                 <p class ="flip-card-back-text" id="p">Write words <br> Leave a blank <br> Click anywhere to start!</p>
               </div>
@@ -71,7 +71,7 @@
                 <h1 class ="flip-card-front-text">Play</h1>
               </div>
               {% if session.get('user_email') %}
-              <div class="flip-card-back" div class="flip-card-back" onclick="window.location.href='{{ url_for('play') }}'">
+              <div class="flip-card-back" div class="flip-card-back" onclick="window.location.href='{{ url_for('main.play') }}'">
                 <h1 class ="flip-card-back-text">How to add</h1>
                 <p class ="flip-card-back-text" id="p">Fill in the blank <br> Match the description</p>
               </div>

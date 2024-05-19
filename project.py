@@ -1,1 +1,6 @@
-from app import flaskApp
+from app import create_app, db
+from app.config import DeploymentConfig
+from flask_migrate import Migrate
+
+flaskApp = create_app(DeploymentConfig)
+migrate = Migrate(flaskApp, db)

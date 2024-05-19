@@ -1,28 +1,30 @@
 from random import randint
-from flask import jsonify, render_template, redirect, url_for, request, flash, session, get_flashed_messages
-from app import flaskApp, db
+from flask import render_template, redirect, url_for, request, flash, session, get_flashed_messages
+from app.blueprints import main
+from app import db
 from app.models import User, Madlib, Placeholder
 import re
 
-@flaskApp.route("/")
-@flaskApp.route("/home")
+
+@main.route("/")
+@main.route("/home")
 def home():
     return render_template('home.html')
 
-@flaskApp.route("/signup")
+@main.route("/signup")
 def Signup():
     return render_template('signUp.html')
 
-@flaskApp.route("/create")
+@main.route("/create")
 def create():
     if not session.get('user_email'):
-        return redirect(url_for('home'))
+        return redirect(url_for('main.home'))
     return render_template('createLib.html')
 
-@flaskApp.route("/play")
+@main.route("/play")
 def play():
     if not session.get('user_email'):
-        return redirect(url_for('home'))
+        return redirect(url_for('main.home'))
     
     madlib_count = Madlib.query.count()
     if madlib_count == 0:
@@ -37,7 +39,7 @@ def play():
     return render_template('play.html', madlib=madlib,madlib_id=random_id,placeholders=placeholders, placeholder_count=placeholder_count)
 
 
-@flaskApp.route("/register", methods=['POST']) 
+@main.route("/register", methods=['POST']) 
 def Register():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -49,10 +51,10 @@ def Register():
             if user.password == password:
                 session['user_email'] = user.email
                 print("logged in:", email)
-                return redirect(location=url_for("home"))
+                return redirect(location=url_for("main.home"))
             else: #password does not match
                 flash("Invalid password for existing email address", "register")
-                return redirect(location=url_for("Signup"))
+                return redirect(location=url_for("main.Signup"))
             
         else: # User does not exist, create a new user
             new_user=User(email=email, password=password)
@@ -63,12 +65,12 @@ def Register():
             print(User.query.all())
             print("User registered:", email)
 
-        return redirect(location=url_for("home"))
+        return redirect(location=url_for("main.home"))
 
-@flaskApp.route('/logout')
+@main.route('/logout')
 def logout():
     session.pop('user_email', None)
-    return redirect(url_for('home'))
+    return redirect(url_for('main.home'))
     
 def get_next_id(): # to provide unique incrementing ids to the madlibs
     last_id = db.session.query(Madlib.id).order_by(Madlib.id.desc()).first()
@@ -77,7 +79,7 @@ def get_next_id(): # to provide unique incrementing ids to the madlibs
     else:
         return 1
     
-@flaskApp.route("/submit", methods=['POST']) #submit madlib
+@main.route("/submit", methods=['POST']) #submit madlib
 def Submit():
     if request.method =='POST':
         content = request.form.get('content')
@@ -99,4 +101,4 @@ def Submit():
 
         print(Madlib.query.order_by(Madlib.id.desc()).first())
 
-        return redirect(location=url_for("home"))
+        return redirect(location=url_for("main.home"))

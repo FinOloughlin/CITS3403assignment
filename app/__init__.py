@@ -1,14 +1,17 @@
 from flask import Flask
-from app.config import Config
+from app.config import Config, DeploymentConfig, TestConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+db = SQLAlchemy()
 
-flaskApp = Flask(__name__)
-flaskApp.config.from_object(Config)
-db = SQLAlchemy(flaskApp)
-migrate = Migrate(flaskApp, db)
-flaskApp.secret_key = 'secret'
+def create_app(config):
+    flaskApp = Flask(__name__)
+    flaskApp.config.from_object(config)
+    from app.blueprints import main
+    flaskApp.register_blueprint(main)
+    db.init_app(flaskApp)
 
+    return flaskApp
 
-from app import routes, models
+from app import models
