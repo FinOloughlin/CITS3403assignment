@@ -1,3 +1,23 @@
+.nav-link {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.navbar {
+  padding: 20px;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .container {
     position: fixed;
     width: 60vw;
