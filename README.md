@@ -30,5 +30,6 @@ if you then run in terminal:
 it will provide you an address that you can copy into your browser and you can use the website with proper functionality. Hopefully the rest of the functionality on the website should be explained on the page.
 
 How to run tests:
-
+enter environment and type:   
+> python -m unittest unit
  
