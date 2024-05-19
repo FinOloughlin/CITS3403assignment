@@ -23,6 +23,10 @@ def create():
 def play():
     if not session.get('user_email'):
         return redirect(url_for('home'))
+
+@flaskApp.route("/rules")
+def rules():
+    return render_template('rules.html')
     
     madlib_count = Madlib.query.count()
     if madlib_count == 0:
