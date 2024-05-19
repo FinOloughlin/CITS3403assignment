@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play Mad Lib</title>
+</head>
+<body>
+    <h1>Play Mad Lib</h1>
+    <form action="/play_lib" method="post">
+        <p><strong>Question:</strong> {{ question }}</p>
+        <label for="answer">Your answer:</label>
+        <input type="text" id="answer" name="answer" placeholder="{{ placeholder }}" required>
+        {% if last_question %}
+            <button type="submit">Finish</button>
+        {% else %}
+            <button type="submit">Next</button>
+        {% endif %}
+    </form>
+</body>
+</html>

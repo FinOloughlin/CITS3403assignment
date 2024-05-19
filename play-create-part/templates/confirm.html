@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Mad Lib</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+    <script>
+        function checkWords() {
+            var checks = document.querySelectorAll('.check-result');
+            for (var i = 0; i < checks.length; i++) {
+                if (checks[i].textContent.includes('not found')) {
+                    alert("Please revise your words. Some words are not found in the story.");
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Confirm Your Mad Lib</h1>
+    <p><strong>Story:</strong></p>
+    <p>{{ story }}</p>
+    <p><strong>Questions:</strong></p>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Word</th>
+                <th>Question</th>
+                <th>Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(num_entries) %}
+                <tr>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ words[i] }}</td>
+                    <td>{{ questions[i] }}</td>
+                    <td class="check-result">{{ word_check_results[i]|safe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/revise" method="get">
+        <button type="submit">Go Back</button>
+    </form>
+    <form action="/confirm" method="post" onsubmit="return checkWords()">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

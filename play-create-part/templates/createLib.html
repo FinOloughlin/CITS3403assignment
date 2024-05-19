@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Mad Lib</title>
+    <script>
+        function clearAll() {
+            document.getElementById("story").value = "";
+            const wordElements = document.querySelectorAll("[id^=word]");
+            const questionElements = document.querySelectorAll("[id^=question]");
+            wordElements.forEach(element => element.value = "");
+            questionElements.forEach(element => element.value = "");
+        }
+    </script>
+</head>
+<body>
+    <h1>Create Your Mad Lib</h1>
+    <form action="/create" method="post">
+        <label for="story">Enter your story:</label>
+        <textarea id="story" name="story" rows="10" cols="50" required>{{ story }}</textarea><br><br>
+        {% for i in range(num_entries) %}
+            <label for="word{{ i }}">Word {{ i }}:</label>
+            <input type="text" id="word{{ i }}" name="word{{ i }}" value="{{ words[i] }}" readonly><br>
+            <label for="question{{ i }}">Question {{ i }}:</label>
+            <input type="text" id="question{{ i }}" name="question{{ i }}" value="{{ questions[i] }}" readonly><br><br>
+        {% endfor %}
+        <label for="next_word">Next Word:</label>
+        <input type="text" id="next_word" name="next_word" required><br>
+        <label for="next_question">Next Question:</label>
+        <input type="text" id="next_question" name="next_question" required><br><br>
+        <button type="submit" name="next">Next</button>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+    <button onclick="clearAll()">Clear All</button>
+</body>
+</html>
