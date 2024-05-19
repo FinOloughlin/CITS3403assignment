@@ -20,11 +20,20 @@ def create():
     if not session.get('user_email'):
         return redirect(url_for('main.home'))
     return render_template('createLib.html')
+  
+@flaskApp.route("/rules")
+def rules():
+    return render_template('rules.html')
 
 @main.route("/play")
 def play():
     if not session.get('user_email'):
         return redirect(url_for('main.home'))
+
+
+@flaskApp.route("/rules")
+def rules():
+    return render_template('rules.html')
     
     madlib_count = Madlib.query.count()
     if madlib_count == 0:
