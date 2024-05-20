@@ -14,7 +14,7 @@ How to run:
 pull the files to your computer. Open terminal and navigate to the directory that the project is in. 
 
 
-in terminal type:
+For MacOS/linux in terminal type:
 > python3 venv -m tmp-env
 
 > source tmp-env/bin/activate
@@ -31,6 +31,13 @@ Make sure to type:
 Now all of the required packages will be installed
 if you then run in terminal:
 > flask run
+
+For Windows (terminal commands respectively):  
+>python venv -m tmp-env  
+>.\tmp-env\Scripts\activate  
+>pip install -r requirements.txt  
+>$env:FLASK_APP = "project.py"  
+>$env:PROJECT_SECRET_KEY = "secretkey"  
 
 it will provide you an address that you can copy into your browser and you can use the website with proper functionality.  
 Then you will have to register an account to use any of the functions.   
