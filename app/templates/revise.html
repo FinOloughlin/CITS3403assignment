@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Revise Mad Lib</title>
+        <script>
+            function confirmNavigation(event) {
+                event.preventDefault();
+                var confirmLeave = confirm("Are you sure you want to leave this page without submission? This will clear all data you enter.");
+                if (confirmLeave) {
+                    document.getElementById("goBackForm").submit();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Revise Your Mad Lib</h1>
+        <form action="/revise" method="post">
+            <label for="story">Edit your story:</label>
+            <textarea id="story" name="story" rows="10" cols="50" required>{{ story }}</textarea><br><br>
+            {% for i in range(num_entries) %}
+                <label for="word{{ i }}">Word {{ i }}:</label>
+                <input type="text" id="word{{ i }}" name="word{{ i }}" value="{{ words[i] }}" required><br>
+                <label for="question{{ i }}">Question {{ i }}:</label>
+                <input type="text" id="question{{ i }}" name="question{{ i }}" value="{{ questions[i] }}" required><br><br>
+            {% endfor %}
+            <button type="submit" name="submit">Submit</button>
+        </form>
+        <form id="goBackForm" action="/go_back_to_create" method="post">
+            <button type="submit" onclick="confirmNavigation(event)">Go Back to Create Page</button>
+        </form>
+    </body>
+</html>
