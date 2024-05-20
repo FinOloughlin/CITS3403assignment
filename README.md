@@ -13,7 +13,8 @@ Group members:
 How to run:   
 pull the files to your computer. Open terminal and navigate to the directory that the project is in. 
 
-in terminal type:
+
+For MacOS/linux in terminal type:
 > python3 venv -m tmp-env
 
 > source tmp-env/bin/activate
@@ -23,13 +24,25 @@ in terminal type:
 Then in terminal you type:
 > pip install requirements.txt
 
+Make sure to type:  
+> export FLASK_APP=project.py  
+> export PROJECT_SECRET_KEY='secretkey'
+
 Now all of the required packages will be installed
 if you then run in terminal:
 > flask run
 
-it will provide you an address that you can copy into your browser and you can use the website with proper functionality. Hopefully the rest of the functionality on the website should be explained on the page.
+For Windows (terminal commands respectively):  
+>python venv -m tmp-env  
+>.\tmp-env\Scripts\activate  
+>pip install -r requirements.txt  
+>$env:FLASK_APP = "project.py"  
+>$env:PROJECT_SECRET_KEY = "secretkey"  
 
-How to run tests:
-enter environment and type:   
-> python -m unittest unit
+it will provide you an address that you can copy into your browser and you can use the website with proper functionality.  
+Then you will have to register an account to use any of the functions.   
+Hopefully the rest of the functionality on the website should be explained on the page.
+
+How to run tests:  
+>python -m unittest unit
  
