@@ -1,38 +1,130 @@
-.fixed-size {
-    resize: none;
-    width: 60%;
-    min-height: 60vh;
-    margin: 0 auto;
-    border-radius: 10px;
-    border-width: 3px;
-    border-color: black;
-
-}
-
-
-.form-group {
-    padding-top: 12vh;
-    position: relative;
-}
-
-.submit-button{
+.nav-link {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  .navbar {
+    padding: 20px;
+  }
+  
+  .navbar-brand {
     position: absolute;
-    top: calc(100% + 30px);
-    width: 120px;
-    height: 50px;
-    font-size: 22px;
-    border-radius: 10px;
-}
-
-.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 6vh;
-    color: white;
-}
-
-.header {
-    text-align: center;
-}
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .container {
+      position: fixed;
+      width: 60vw;
+      height: 50vh;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 600px;
+      padding: 2vh 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center; 
+  }
+  
+  body {
+      overflow: hidden;
+  }
+  
+  .form-entry {
+      margin-bottom: 1vh;
+  }
+  
+  /* Flipcard Styling */
+  .flip-card {
+      background-color: transparent;
+      width: 64%;
+      height: 76%;
+      perspective: 1000px; /* Remove this if you don't want the 3D effect */
+      display: inline-block;
+      border-radius: 10px;
+    }
+  
+    /* Font styling */
+    .flip-card-front-text .flip-card-back-text{
+      padding-top: 10px;
+      font-size: 5.5vh;
+    }
+    
+    .flip-card-front-text {
+      font-size: 8vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  
+    #p {
+      font-size: 3vh;
+    }
+    
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    
+    /* Do an horizontal flip when you click on the flip box container */
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    /* Position the front and back side */
+    .flip-card-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      border-radius: 15px;
+    }
+  
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      border-radius: 15px;
+    }
+    .flip-card-back:hover {
+      cursor: pointer;
+    }
+    
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color:rgb(51, 58, 64);
+      color: white;
+    }
+    
+    /* Style the back side */
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background-color:rgb(51, 58, 64);
+      color: white
+    }
+  
+    #centreCard {
+      position: absolute;
+      left: 50%;
+      top: 15vh;
+      transform: translate(-50%, 0);
+    }
+  
