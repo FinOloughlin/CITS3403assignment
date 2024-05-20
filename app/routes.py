@@ -168,8 +168,14 @@ def play():
         session['placeholders'] = selected_madlib.placeholders.split('|')
         session['answers'] = [''] * len(session['questions'])
         session['current_question'] = 0
-        return render_template('play.html')
+
+        question = session['questions'][0]
+        placeholder = session['placeholders'][0]
+        last_question = (len(session['questions']) == 1)
+        
+        return render_template('play.html', question=question, placeholder=placeholder, last_question=last_question)
     return "No stories available."
+
 
 @main.route('/play_lib', methods=['GET', 'POST'])
 def play_lib():

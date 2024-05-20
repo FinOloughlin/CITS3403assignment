@@ -33,7 +33,7 @@ if you then run in terminal:
 > flask run
 
 For Windows (terminal commands respectively):  
->python venv -m tmp-env  
+>python -m venv tmp-env
 >.\tmp-env\Scripts\activate  
 >pip install -r requirements.txt  
 >$env:FLASK_APP = "project.py"  
